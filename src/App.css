@@ -122,7 +122,11 @@
 .prompt-banner {
   margin: 24px 24px 0;
   border-radius: 16px;
-  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(6, 182, 212, 0.06));
+  background: linear-gradient(
+    135deg,
+    rgba(124, 58, 237, 0.1),
+    rgba(6, 182, 212, 0.06)
+  );
   border: 1px solid rgba(124, 58, 237, 0.25);
   overflow: hidden;
 }
@@ -194,7 +198,7 @@
   transition: transform var(--transition);
 }
 
-.prompt-banner-trigger[aria-expanded='true'] .prompt-banner-chevron {
+.prompt-banner-trigger[aria-expanded="true"] .prompt-banner-chevron {
   transform: rotate(180deg);
 }
 
@@ -348,27 +352,43 @@
   padding: 48px 56px 80px;
 }
 
+/* Demo article <pre> blocks: wrap long lines (default pre does not wrap) */
+.editor-surface pre {
+  max-width: 100%;
+  box-sizing: border-box;
+  white-space: pre-wrap !important;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.editor-surface pre code {
+  white-space: inherit !important;
+  word-break: inherit;
+  overflow-wrap: inherit;
+}
+
 /* Editor highlight color classes — dark ink on light tints (page text is light; inherit was low-contrast) */
 .hl-yellow {
-  background: rgba(254, 240, 138, 0.55) !important;
+  background: rgba(254, 240, 138) !important;
   color: #0c0a0a !important;
   border-radius: 3px;
   padding: 1px 2px;
 }
 .hl-lime {
-  background: rgba(190, 242, 100, 0.5) !important;
+  background: rgba(190, 242, 100) !important;
   color: #0c0a0a !important;
   border-radius: 3px;
   padding: 1px 2px;
 }
 .hl-green {
-  background: rgba(134, 239, 172, 0.5) !important;
+  background: rgba(134, 239, 172) !important;
   color: #052e16 !important;
   border-radius: 3px;
   padding: 1px 2px;
 }
 .hl-teal {
-  background: rgba(94, 234, 212, 0.45) !important;
+  background: rgba(94, 234, 212) !important;
   color: #042f2e !important;
   border-radius: 3px;
   padding: 1px 2px;
@@ -380,7 +400,7 @@
   padding: 1px 2px;
 }
 .hl-blue {
-  background: rgba(147, 197, 253, 0.5) !important;
+  background: rgba(147, 197, 253) !important;
   color: #0f172a !important;
   border-radius: 3px;
   padding: 1px 2px;
@@ -392,7 +412,7 @@
   padding: 1px 2px;
 }
 .hl-purple {
-  background: rgba(216, 180, 254, 0.5) !important;
+  background: rgba(216, 180, 254) !important;
   color: #3b0764 !important;
   border-radius: 3px;
   padding: 1px 2px;
@@ -472,7 +492,7 @@
   color: var(--text-bright);
 }
 
-[class*='hl-'] .bold {
+[class*="hl-"] .bold {
   color: inherit !important;
 }
 
@@ -832,7 +852,7 @@
 }
 
 .bmc-badge__label {
-  font-family: 'Segoe Print', 'Bradley Hand', 'Apple Chancery', cursive;
+  font-family: "Segoe Print", "Bradley Hand", "Apple Chancery", cursive;
   font-size: 1.15rem;
   font-weight: 600;
   color: #fff;

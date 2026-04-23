@@ -51,6 +51,10 @@ const blogHTML = `<article>
     </figure>
 
     <h2 style="font-size:1.6rem;font-weight:700;letter-spacing:-0.5px;margin:0 0 16px;color:inherit;">What is reactjs-editor?</h2>
+        <div style="background:rgba(124,58,237,0.08);border:1px solid rgba(124,58,237,0.15);border-radius:12px;padding:24px 28px;margin:0 0 40px;">
+      <div style="font-size:14px;font-weight:700;color:#a78bfa;margin-bottom:8px;">TRY IT NOW</div>
+      <p style="font-size:1rem;line-height:1.7;margin:0;color:inherit;">Select any text on this page with your mouse. A floating toolbar will appear letting you highlight, bold, or add comments. Go ahead — try selecting this paragraph!</p>
+    </div>
     <p style="font-size:1.05rem;line-height:1.9;margin:0 0 24px;color:inherit;">
       <strong>reactjs-editor</strong> is a lightweight React library that transforms any HTML content into an interactive editing surface. Users can select text and instantly highlight it with custom colors, toggle bold formatting, or attach sticky-note style comments — all without any complex configuration.
     </p>
@@ -58,10 +62,7 @@ const blogHTML = `<article>
       Under the hood it uses <strong>XPath-based range tracking</strong> to precisely locate selections within deeply nested DOM trees, and <strong>Zustand</strong> for persistent state management so modifications survive re-renders.
     </p>
 
-    <div style="background:rgba(124,58,237,0.08);border:1px solid rgba(124,58,237,0.15);border-radius:12px;padding:24px 28px;margin:0 0 40px;">
-      <div style="font-size:14px;font-weight:700;color:#a78bfa;margin-bottom:8px;">TRY IT NOW</div>
-      <p style="font-size:1rem;line-height:1.7;margin:0;color:inherit;">Select any text on this page with your mouse. A floating toolbar will appear letting you highlight, bold, or add comments. Go ahead — try selecting this paragraph!</p>
-    </div>
+
 
     <h2 style="font-size:1.6rem;font-weight:700;letter-spacing:-0.5px;margin:0 0 16px;color:inherit;">Getting Started</h2>
     <p style="font-size:1.05rem;line-height:1.9;margin:0 0 16px;color:inherit;">
@@ -71,15 +72,13 @@ const blogHTML = `<article>
     <p style="font-size:1.05rem;line-height:1.9;margin:0 0 16px;color:inherit;">
       Then import and use the <code style="background:rgba(124,58,237,0.15);padding:2px 8px;border-radius:6px;font-size:0.9em;color:#c4b5fd;">Editor</code> component with any HTML string:
     </p>
-    <pre style="background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px 24px;font-family:monospace;font-size:14px;line-height:1.7;overflow-x:auto;margin:0 0 32px;color:#e4e4ed;"><code>import { Editor } from 'reactjs-editor';
-
-function App() {
-  return (
-    &lt;Editor
-      htmlContent={\`&lt;div&gt;Your content here&lt;/div&gt;\`}
-      colors={["yellow", "green", "blue"]}
-    /&gt;
-  );
+    <pre style="background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px 24px;font-family:monospace;font-size:14px;line-height:1.7;overflow-x:auto;margin:0 0 32px;color:#e4e4ed;"><code>import { Editor } from 'reactjs-editor';<br />
+function App() {<br />
+return (<br />
+&lt;Editor<br />
+htmlContent={\`&lt;div&gt;Your content here&lt;/div&gt;\`}<br />
+colors={["yellow", "green", "blue"]} /&gt;<br />
+);<br />
 }</code></pre>
 
     <h2 style="font-size:1.6rem;font-weight:700;letter-spacing:-0.5px;margin:0 0 16px;color:inherit;">Core Features</h2>
@@ -103,22 +102,13 @@ function App() {
     <p style="font-size:1.05rem;line-height:1.9;margin:0 0 16px;color:inherit;">
       The library exposes a <code style="background:rgba(124,58,237,0.15);padding:2px 8px;border-radius:6px;font-size:0.9em;color:#c4b5fd;">useDomValue</code> hook that gives you access to the current DOM state:
     </p>
-    <pre style="background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px 24px;font-family:monospace;font-size:14px;line-height:1.7;overflow-x:auto;margin:0 0 16px;color:#e4e4ed;"><code>import { useDomValue } from 'reactjs-editor';
-
-const { dom, setDom } = useDomValue();
-
-// Save the current state
-const savedState = {
-  key: dom?.key,
-  props: dom?.props,
-  ref: dom?.ref,
-  type: dom?.type,
-};
-
-// Restore it later
-useEffect(() =&gt; {
-  setDom(savedState);
-}, []);</code></pre>
+    <pre style="background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px 24px;font-family:monospace;font-size:14px;line-height:1.7;overflow-x:auto;margin:0 0 16px;color:#e4e4ed;"><code>import { useDomValue } from 'reactjs-editor';<br />
+<br />
+const { dom, setDom } = useDomValue(); // Save the current state<br />
+<br />
+const savedState = { key: dom?.key, props: dom?.props, ref: dom?.ref, type: dom?.type, };<br />
+// Restore it later<br />
+useEffect(() =&gt; { setDom(savedState); }, []);</code></pre>
     <p style="font-size:1.05rem;line-height:1.9;margin:0 0 40px;color:inherit;">
       This means you can serialize the editor state, store it in a database, and restore it later — enabling full persistence of user annotations across sessions.
     </p>
